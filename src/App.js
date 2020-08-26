@@ -1,23 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import "./App.css";
 
 function App() {
+  const axios = require("axios");
+  let request = axios.get(
+    "http://www.omdbapi.com/?i=tt3896198&apikey=4d268215&t=war"
+  );
+  require("dotenv").config();
+  console.log(request);
+
+  // useEffect(() => {
+  //   setAppState({ loading: true });
+  //   const apiUrl = 'https://api.github.com/users/hacktivist123/repos';
+  //   axios.get(apiUrl).then((repos) => {
+  //     const allRepos = repos.data;
+  //     setAppState({ loading: false, repos: allRepos });
+  //   });
+  // }, [setAppState]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header>
+        {request[0].data.map((x) => (
+          <h1>x</h1>
+        ))}
       </header>
     </div>
   );
