@@ -2,9 +2,9 @@ const axios = require("axios");
 const path = require("path");
 require("dotenv").config({ path: path.resolve(__dirname, "../../.env") });
 
-const omdbGetRequest = (title) => {
+export const omdbGetRequest = (title) => {
   const results = [];
-  axios
+  return axios
     .get(
       `http://www.omdbapi.com/?i=tt3896198&apikey=${process.env.REACT_APP_API_KEY}&t=${title}`
     )
@@ -12,8 +12,6 @@ const omdbGetRequest = (title) => {
       for (const key in data) {
         results[key] = data[key];
       }
-    })
-    .then(() => {
       return results;
     })
     .catch(function (error) {
@@ -22,4 +20,4 @@ const omdbGetRequest = (title) => {
     });
 };
 
-omdbGetRequest();
+// console.log(omdbGetRequest("war"));
