@@ -1,8 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 
-export default function Input(props) {
-  const [name, setName] = useState("");
-
+export default function Input({ name, setName }) {
   return (
     <main>
       <input
