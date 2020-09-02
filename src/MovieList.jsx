@@ -1,7 +1,16 @@
 import React from "react";
 import SingleMovie from "./SingleMovie";
 
-export default function MovieList({ movies, nominateMovie, removeMovie }) {
+export default function MovieList({
+  movies,
+  nominations,
+  nominateMovie,
+  removeMovie,
+}) {
+  const movieNominated = (movie) => {
+    return !!nominations.find((n) => n.imdbID === movie.imdbID);
+  };
+
   if (movies) {
     return (
       <ul>
@@ -14,7 +23,7 @@ export default function MovieList({ movies, nominateMovie, removeMovie }) {
               title={singleMovie.Title}
               year={singleMovie.Year}
               poster={singleMovie.Poster}
-              is_disabled={singleMovie.is_disabled} // boolean
+              is_disabled={movieNominated(singleMovie)} // boolean
               setNominate={nominateMovie}
               removeMovie={removeMovie}
             />

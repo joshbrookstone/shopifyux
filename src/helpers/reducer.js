@@ -9,7 +9,8 @@ export default function reducer(state, action) {
 
   if (action.type === REMOVE) {
     const { id } = action;
-    return state.filter((movie) => movie.id !== id);
+
+    return state.filter((movie) => movie.imdbID !== id);
   }
 
   throw new Error(

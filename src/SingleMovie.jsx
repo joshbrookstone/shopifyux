@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 export default function SingleMovie({
   id,
@@ -6,16 +6,11 @@ export default function SingleMovie({
   title,
   year,
   poster,
+  is_disabled,
   setNominate,
-  removeMovie,
 }) {
-  const [disabled, setDisabled] = useState(false);
-
   const onClick = () => {
-    // nominatedList.push(...nominatedList, title)
-
     setNominate(entireMovie);
-    setDisabled(true);
   };
 
   return (
@@ -26,7 +21,7 @@ export default function SingleMovie({
       ) : (
         <p>No poster</p>
       )}
-      <button onClick={onClick} disabled={disabled}>
+      <button onClick={onClick} disabled={is_disabled}>
         Nominate
       </button>
     </li>

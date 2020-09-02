@@ -8,9 +8,9 @@ export default function useNominations() {
     dispatch({ type: NOMINATE, movie: movie });
   }
 
-  function removeMovie(movie) {
-    dispatch({ type: REMOVE, id: movie.id });
+  function removeNomination(id) {
+    dispatch({ type: REMOVE, id });
   }
 
-  return { nominations, nominateMovie, removeMovie };
+  return { nominations, nominateMovie, removeNomination };
 }
