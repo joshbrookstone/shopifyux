@@ -1,40 +1,28 @@
-import React, { useEffect } from "react";
-const axios = require("axios");
+import React from "react";
+import SingleMovie from "./SingleMovie";
 
-export default function MovieList({ data, setData, name }) {
-  useEffect(() => {
-    const omdb = (name) => {
-      console.log("inside omdb useffect");
-      return axios
-        .get(
-          `http://www.omdbapi.com/?i=tt3896198&apikey=${process.env.REACT_APP_API_KEY}&s=${name}`
-        )
-        .then(({ data }) => {
-          setData(data.Search);
-        })
-        .catch(function (error) {
-          // handle error
-          console.log(error);
-        });
-    };
-
-    omdb(name);
-  }, [name, setData]);
-
-  if (data) {
-    const listItems = data.map((data, i) => (
-      <li key={i}>
-        {data.Title}({data.Year})
-        {data.Poster !== "N/A" ? (
-          <img src={data.Poster} alt="Movie Poster"></img>
-        ) : (
-          <p>No poster in the database</p>
-        )}
-      </li>
-    ));
-
-    return data.length > 1 ? <ul>{listItems}</ul> : <></>;
-  } else {
-    return <div>please enter a movie name</div>;
+export default function MovieList({ movies, nominateMovie, removeMovie }) {
+  if (movies) {
+    return (
+      <ul>
+        {movies.map((singleMovie, i) => {
+          return (
+            <SingleMovie
+              entireMovie={singleMovie}
+              key={i}
+              id={singleMovie.imdbID}
+              title={singleMovie.Title}
+              year={singleMovie.Year}
+              poster={singleMovie.Poster}
+              is_disabled={singleMovie.is_disabled} // boolean
+              setNominate={nominateMovie}
+              removeMovie={removeMovie}
+            />
+          );
+        })}
+      </ul>
+    );
   }
+
+  return <div>please type a movie!</div>;
 }

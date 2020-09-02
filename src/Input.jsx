@@ -1,14 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
+import { debounce } from "lodash";
+const axios = require("axios");
 
-export default function Input({ name, setName }) {
+export default function Input({ setMovies }) {
+  const [inputName, setInputName] = useState("");
+
+  const searchAPI = debounce((query) => {
+    return axios
+      .get(
+        `http://www.omdbapi.com/?i=tt3896198&apikey=${process.env.REACT_APP_API_KEY}&s=${query}`
+      )
+      .then(({ data }) => {
+        setMovies(data.Search);
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      });
+  }, 1000);
+
+  const handleOnChange = (event) => {
+    setInputName(event.target.value);
+    searchAPI(event.target.value);
+  };
+
   return (
-    <main>
-      <input
-        value={name}
-        onChange={(event) => setName(event.target.value)}
-        placeholder="Please enter a Movie Title"
-      />
-      <h1>Hello, {name}.</h1>
-    </main>
+    <input
+      value={inputName}
+      onChange={handleOnChange}
+      placeholder="Please enter a Movie Title"
+    />
   );
 }
