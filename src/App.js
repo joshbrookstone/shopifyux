@@ -33,7 +33,7 @@ export default function App() {
         style={{ minHeight: "100vh" }}
       >
         <Grid item xs={6}>
-          <h1 text-align="center">Movie List:</h1>
+          <h1 className={"List-Header"}>Movie List:</h1>
           <MovieList
             movies={movies}
             nominations={nominations}
@@ -41,7 +41,7 @@ export default function App() {
           ></MovieList>
         </Grid>
         <Grid item xs={6}>
-          <h1>Nominated Movies:</h1>
+          <h1 className={"List-Header"}>Nominated Movies:</h1>
           <NominatedMovies
             movies={nominations}
             removeNomination={removeNomination}
