@@ -5,6 +5,7 @@ const axios = require("axios");
 export default function Input({ setMovies }) {
   const [inputName, setInputName] = useState("");
 
+  //! debouncer is returning all queries not just the last one
   const searchAPI = debounce((query) => {
     return axios
       .get(

@@ -1,6 +1,16 @@
 import React from "react";
+import Button from "@material-ui/core/Button";
+import { makeStyles } from "@material-ui/core/styles";
+import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
+const useStyles = makeStyles((theme) => ({
+  button: {
+    margin: theme.spacing(1),
+  },
+}));
 
 export default function SingleMovie({ movie, is_disabled, setNominate }) {
+  const classes = useStyles();
+
   const onClick = () => {
     setNominate(movie);
   };
@@ -13,9 +23,17 @@ export default function SingleMovie({ movie, is_disabled, setNominate }) {
       ) : (
         <p>No poster</p>
       )}
-      <button onClick={onClick} disabled={is_disabled}>
+      <Button
+        variant="contained"
+        color="primary"
+        size="small"
+        className={classes.button}
+        startIcon={<FavoriteBorderIcon />}
+        onClick={onClick}
+        disabled={is_disabled}
+      >
         Nominate
-      </button>
+      </Button>
     </li>
   );
 }
