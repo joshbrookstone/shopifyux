@@ -17,12 +17,8 @@ export default function MovieList({
         {movies.map((singleMovie, i) => {
           return (
             <SingleMovie
-              entireMovie={singleMovie}
               key={i}
-              id={singleMovie.imdbID}
-              title={singleMovie.Title}
-              year={singleMovie.Year}
-              poster={singleMovie.Poster}
+              movie={singleMovie}
               is_disabled={movieNominated(singleMovie)} // boolean
               setNominate={nominateMovie}
               removeMovie={removeMovie}
