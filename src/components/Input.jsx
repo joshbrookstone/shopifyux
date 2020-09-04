@@ -1,8 +1,8 @@
 import React, { useState, useCallback, useEffect } from "react";
 import { debounce } from "lodash";
 import TextField from "@material-ui/core/TextField";
+import OmdbSearch from "../helpers/OmdbSearch";
 import "./Input.css";
-import OmdbSearch from "./helpers/OmdbSearch";
 
 export default function Input({ setMovies, setLoading }) {
   const [inputName, setInputName] = useState("");
