@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 // CSS
 import "./App.css";
@@ -18,11 +18,25 @@ import Container from "@material-ui/core/Container";
 export default function App() {
   const [movies, setMovies] = useState([]);
   const { nominations, nominateMovie, removeNomination } = useNominations();
+  const [loaded, setLoading] = useState();
+  const [FullNominationList, setFullNominationList] = useState(false);
+
+  useEffect(() => {
+    const isNominationListFull = () => {
+      nominations.length === 5
+        ? setFullNominationList(true)
+        : setFullNominationList(false);
+    };
+    isNominationListFull();
+  }, [nominations]);
 
   return (
     <>
       <Container className={"Main-Container"} maxWidth="lg">
         <Header />
+        <h3 className={"Nominate-Statement"}>
+          Nominate your five favorite movies for the shoppies award!
+        </h3>
         <Grid
           container
           spacing={0}
@@ -32,8 +46,11 @@ export default function App() {
           style={{ minHeight: "20vh" }}
         >
           <Grid item xs={12}>
-            <Input setMovies={setMovies}></Input>
+            <Input setMovies={setMovies} setLoading={setLoading}></Input>
           </Grid>
+          {FullNominationList && (
+            <h3>Amazing nominations list! click the buttons below to share!</h3>
+          )}
         </Grid>
         <Grid
           container
@@ -46,6 +63,7 @@ export default function App() {
           <Grid item xs={6}>
             <h1 className={"List-Header"}>Movie List:</h1>
             <MovieList
+              loaded={loaded}
               movies={movies}
               nominations={nominations}
               nominateMovie={nominateMovie}
@@ -56,6 +74,7 @@ export default function App() {
             <NominatedMovies
               movies={nominations}
               removeNomination={removeNomination}
+              nominations={nominations}
             />
           </Grid>
         </Grid>

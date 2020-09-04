@@ -5,4 +5,7 @@ header {
   font-size: 40px;
   padding-top: 61px;
   font-family: "Kumbh Sans", sans-serif;
+  padding-bottom: 61px;
+  color: #52504e;
+  font-weight: 700;
 }

@@ -5,7 +5,7 @@ import "./Input.css";
 
 const axios = require("axios");
 
-export default function Input({ setMovies }) {
+export default function Input({ setMovies, setLoading }) {
   const [inputName, setInputName] = useState("");
 
   const searchAPI = (query) => {
@@ -15,6 +15,7 @@ export default function Input({ setMovies }) {
       )
       .then(({ data }) => {
         setMovies(data.Search);
+        setLoading(true);
       })
       .catch(function (error) {
         // handle error
@@ -23,11 +24,13 @@ export default function Input({ setMovies }) {
   };
 
   const onChange = (e) => {
+    setLoading(false);
     setInputName(e.target.value);
   };
 
   const updateQuery = () => {
     // A search query api call.
+
     searchAPI(inputName);
   };
 
@@ -43,12 +46,12 @@ export default function Input({ setMovies }) {
   return (
     <TextField
       inputProps={{ style: { fontSize: 40 } }}
-      InputLabelProps={{ style: { fontSize: 40 } }}
+      InputLabelProps={{ style: { fontSize: 20 } }}
       fullWidth
-      label="Omdb Nominator"
+      label="Search Omdb and nominate a movie!"
       value={inputName}
       onChange={onChange}
-      placeholder="Please enter a Movie Title"
+      placeholder="Enter a Movie Title"
     />
   );
 }

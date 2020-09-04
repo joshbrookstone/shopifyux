@@ -26,7 +26,7 @@ export default function SingleMovie({ movie, is_disabled, setNominate }) {
         <p>No poster</p>
       )} */}
       <Button
-        variant="contained"
+        variant="outlined"
         color="primary"
         size="small"
         className={classes.button}
