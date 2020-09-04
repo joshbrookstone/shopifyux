@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import { debounce } from "lodash";
+import TextField from "@material-ui/core/TextField";
+import "./Input.css";
+
 const axios = require("axios");
 
 export default function Input({ setMovies }) {
   const [inputName, setInputName] = useState("");
 
-  //! debouncer is returning all queries not just the last one
-  const searchAPI = debounce((query) => {
+  const searchAPI = (query) => {
     return axios
       .get(
         `http://www.omdbapi.com/?i=tt3896198&apikey=${process.env.REACT_APP_API_KEY}&s=${query}`
@@ -18,17 +20,34 @@ export default function Input({ setMovies }) {
         // handle error
         console.log(error);
       });
-  }, 1000);
-
-  const handleOnChange = (event) => {
-    setInputName(event.target.value);
-    searchAPI(event.target.value);
   };
 
+  const onChange = (e) => {
+    setInputName(e.target.value);
+  };
+
+  const updateQuery = () => {
+    // A search query api call.
+    searchAPI(inputName);
+  };
+
+  const delayedQuery = useCallback(debounce(updateQuery, 500), [inputName]);
+
+  useEffect(() => {
+    delayedQuery();
+
+    // Cancel previous debounce calls during useEffect cleanup.
+    return delayedQuery.cancel;
+  }, [inputName, delayedQuery]);
+
   return (
-    <input
+    <TextField
+      inputProps={{ style: { fontSize: 40 } }}
+      InputLabelProps={{ style: { fontSize: 40 } }}
+      fullWidth
+      label="Omdb Nominator"
       value={inputName}
-      onChange={handleOnChange}
+      onChange={onChange}
       placeholder="Please enter a Movie Title"
     />
   );

@@ -15,7 +15,7 @@ export default function NominatedMovies({ movies, removeNomination }) {
   return movies.map((movie, i) => {
     return (
       <li key={i}>
-        {movie.Title}({movie.Year})x
+        {movie.Title}({movie.Year})
         <Button
           variant="contained"
           color="secondary"

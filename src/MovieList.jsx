@@ -1,5 +1,7 @@
 import React from "react";
 import SingleMovie from "./SingleMovie";
+import Grid from "@material-ui/core/Grid";
+import Paper from "@material-ui/core/Paper";
 
 export default function MovieList({
   movies,
@@ -13,21 +15,27 @@ export default function MovieList({
 
   if (movies) {
     return (
-      <ul>
-        {movies.map((singleMovie, i) => {
-          return (
-            <SingleMovie
-              key={i}
-              movie={singleMovie}
-              is_disabled={movieNominated(singleMovie)} // boolean
-              setNominate={nominateMovie}
-              removeMovie={removeMovie}
-            />
-          );
-        })}
-      </ul>
+      <Grid container>
+        <Paper elevation={0}>
+          <ul>
+            {movies.map((singleMovie, i) => {
+              return (
+                <Grid item xs={12}>
+                  <SingleMovie
+                    key={i}
+                    movie={singleMovie}
+                    is_disabled={movieNominated(singleMovie)} // boolean
+                    setNominate={nominateMovie}
+                    removeMovie={removeMovie}
+                  />
+                </Grid>
+              );
+            })}
+          </ul>
+        </Paper>
+      </Grid>
     );
   }
 
-  return <div>please type a movie!</div>;
+  return <></>;
 }
