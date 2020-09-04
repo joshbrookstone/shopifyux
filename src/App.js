@@ -7,10 +7,10 @@ import "./App.css";
 import useNominations from "./hooks/useNominations";
 
 // React Components
-import NominatedMovies from "./NominatedMovies";
-import MovieList from "./MovieList";
-import Input from "./Input";
-import Header from "./Header";
+import NominatedMovies from "./components/NominatedMovies";
+import MovieList from "./components/MovieList";
+import Input from "./components/Input";
+import Header from "./components/Header";
 // Material UI Components
 import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
