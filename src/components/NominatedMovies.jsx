@@ -46,5 +46,9 @@ export default function NominatedMovies({
       </Grid>
     );
 
-  return <></>;
+  return (
+    <h3 className={"Nominated-Filler"}>
+      Your nominated movies will appear here
+    </h3>
+  );
 }

@@ -31,3 +31,7 @@
 .Notification {
   color: #9a2138;
 }
+
+.socials {
+  display: flex;
+}

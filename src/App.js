@@ -11,6 +11,7 @@ import NominatedMovies from "./components/NominatedMovies";
 import MovieList from "./components/MovieList";
 import Input from "./components/Input";
 import Header from "./components/Header";
+import Socials from "./components/Socials";
 // Material UI Components
 import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
@@ -33,7 +34,6 @@ export default function App() {
   useEffect(() => {
     const data = localStorage.getItem("my-nominations");
     if (data) {
-      console.log(data);
       const parsedData = JSON.parse(data);
       parsedData.forEach((x) => nominateMovie(x));
     }
@@ -45,7 +45,7 @@ export default function App() {
 
   return (
     <>
-      <Container className={"Main-Container"} maxWidth="lg">
+      <Container className={"Main-Container"} maxWidth="xl">
         <Header />
         <h3 className={"Nominate-Statement"}>
           Nominate your five favorite movies for the shoppies award!
@@ -62,7 +62,11 @@ export default function App() {
             <Input setMovies={setMovies} setLoading={setLoading}></Input>
           </Grid>
           {FullNominationList && (
-            <h3 className={"Notification"}>Amazing nominations list!</h3>
+            <>
+              <h3 className={"Notification"}>Amazing nominations list!</h3>
+              <h3>Click to share your list!</h3>
+              <Socials />
+            </>
           )}
         </Grid>
         <Grid
