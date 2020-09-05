@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/shopifyux/static/css/main.8dacf295.chunk.css",
+    "main.js": "/shopifyux/static/js/main.b94fb8fb.chunk.js",
+    "main.js.map": "/shopifyux/static/js/main.b94fb8fb.chunk.js.map",
+    "runtime-main.js": "/shopifyux/static/js/runtime-main.c5ed0219.js",
+    "runtime-main.js.map": "/shopifyux/static/js/runtime-main.c5ed0219.js.map",
+    "static/js/2.5e18f19d.chunk.js": "/shopifyux/static/js/2.5e18f19d.chunk.js",
+    "static/js/2.5e18f19d.chunk.js.map": "/shopifyux/static/js/2.5e18f19d.chunk.js.map",
+    "index.html": "/shopifyux/index.html",
+    "precache-manifest.5ba8b5e3767dbda6ceb6782490183ceb.js": "/shopifyux/precache-manifest.5ba8b5e3767dbda6ceb6782490183ceb.js",
+    "service-worker.js": "/shopifyux/service-worker.js",
+    "static/css/main.8dacf295.chunk.css.map": "/shopifyux/static/css/main.8dacf295.chunk.css.map",
+    "static/js/2.5e18f19d.chunk.js.LICENSE.txt": "/shopifyux/static/js/2.5e18f19d.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c5ed0219.js",
+    "static/js/2.5e18f19d.chunk.js",
+    "static/css/main.8dacf295.chunk.css",
+    "static/js/main.b94fb8fb.chunk.js"
+  ]
+}
