@@ -99,3 +99,5 @@ export default function App() {
     </>
   );
 }
+
+//! ask alvin about flexboxing issue, as well as getting the actual share url
