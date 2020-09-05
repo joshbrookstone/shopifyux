@@ -62,9 +62,7 @@ export default function App() {
             <Input setMovies={setMovies} setLoading={setLoading}></Input>
           </Grid>
           {FullNominationList && (
-            <h3 className={"Notification"}>
-              Amazing nominations list! click the buttons below to share!
-            </h3>
+            <h3 className={"Notification"}>Amazing nominations list!</h3>
           )}
         </Grid>
         <Grid
