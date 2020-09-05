@@ -18,7 +18,7 @@ export default function SingleMovie({ movie, is_disabled, setNominate }) {
   };
 
   return (
-    <li className={"Single-Movie"}>
+    <li className={"Single-Movie"} onMouseOver>
       {movie.Title}({movie.Year})
       {/* {movie.Poster !== "N/A" ? (
         <img className={"Poster"} src={movie.Poster} alt="Movie Poster"></img>

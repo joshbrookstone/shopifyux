@@ -4,7 +4,7 @@ import TextField from "@material-ui/core/TextField";
 import OmdbSearch from "../helpers/OmdbSearch";
 import "./Input.css";
 
-export default function Input({ setMovies, setLoading }) {
+export default function Input({ setMovies, setLoading, setError }) {
   const [inputName, setInputName] = useState("");
 
   const onChange = (e) => {
@@ -14,7 +14,7 @@ export default function Input({ setMovies, setLoading }) {
 
   const updateQuery = () => {
     // A search query api call.
-    OmdbSearch(inputName, setMovies, setLoading);
+    OmdbSearch(inputName, setMovies, setLoading, setError);
   };
 
   const delayedQuery = useCallback(debounce(updateQuery, 500), [inputName]);

@@ -10,7 +10,9 @@ export default function MovieList({
   nominateMovie,
   removeMovie,
   loaded,
+  error,
 }) {
+  console.log(movies);
   const movieNominated = (movie) => {
     return !!nominations.find((n) => n.imdbID === movie.imdbID);
   };
@@ -21,7 +23,11 @@ export default function MovieList({
 
   if (movies && loaded) {
     return (
-      <Grid container className={("Movie-List", "fade-in")}>
+      <Grid
+        container
+        className={("Movie-List", "fade-in")}
+        style={{ placeContent: "center" }}
+      >
         <ul>
           {movies.map((singleMovie, i) => {
             return (
@@ -45,5 +51,9 @@ export default function MovieList({
   if (!loaded) {
     return <Spinner />;
   }
-  return <></>;
+
+  if (error) {
+    return <h3>sorry something went wrong! please try again</h3>;
+  }
+  return <h3 className={"Movie-Filler"}>Omdb Movies will appear here</h3>;
 }

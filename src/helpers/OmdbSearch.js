@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export default function OmdbSearch(query, setMovies, setLoading) {
+export default function OmdbSearch(query, setMovies, setLoading, setError) {
   return axios
     .get(
       `http://www.omdbapi.com/?i=tt3896198&apikey=${process.env.REACT_APP_API_KEY}&s=${query}`
@@ -12,5 +12,6 @@ export default function OmdbSearch(query, setMovies, setLoading) {
     .catch(function (error) {
       // handle error
       console.log(error);
+      setError(error);
     });
 }

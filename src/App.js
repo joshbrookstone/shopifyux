@@ -17,10 +17,11 @@ import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
 
 export default function App() {
-  const [movies, setMovies] = useState([]);
+  const [movies, setMovies] = useState();
   const { nominations, nominateMovie, removeNomination } = useNominations();
   const [loaded, setLoading] = useState();
   const [FullNominationList, setFullNominationList] = useState(false);
+  const [error, setError] = useState();
 
   useEffect(() => {
     const isNominationListFull = () => {
@@ -59,7 +60,11 @@ export default function App() {
           style={{ minHeight: "20vh" }}
         >
           <Grid item xs={12}>
-            <Input setMovies={setMovies} setLoading={setLoading}></Input>
+            <Input
+              setMovies={setMovies}
+              setLoading={setLoading}
+              setError={setError}
+            ></Input>
           </Grid>
           {FullNominationList && (
             <>
@@ -84,6 +89,7 @@ export default function App() {
               movies={movies}
               nominations={nominations}
               nominateMovie={nominateMovie}
+              error={error}
             ></MovieList>
           </Grid>
           <Grid item xs={6}>

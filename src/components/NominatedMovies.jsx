@@ -21,7 +21,11 @@ export default function NominatedMovies({
 
   if (nominations.length > 0)
     return (
-      <Grid container className={"Nominated-Movie-List"}>
+      <Grid
+        container
+        className={"Nominated-Movie-List"}
+        style={{ placeContent: "center" }}
+      >
         <ul>
           {movies.map((movie, i) => {
             return (
