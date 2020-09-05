@@ -30,6 +30,19 @@ export default function App() {
     isNominationListFull();
   }, [nominations]);
 
+  useEffect(() => {
+    const data = localStorage.getItem("my-nominations");
+    if (data) {
+      console.log(data);
+      const parsedData = JSON.parse(data);
+      parsedData.forEach((x) => nominateMovie(x));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("my-nominations", JSON.stringify(nominations));
+  });
+
   return (
     <>
       <Container className={"Main-Container"} maxWidth="lg">
@@ -49,7 +62,9 @@ export default function App() {
             <Input setMovies={setMovies} setLoading={setLoading}></Input>
           </Grid>
           {FullNominationList && (
-            <h3>Amazing nominations list! click the buttons below to share!</h3>
+            <h3 className={"Notification"}>
+              Amazing nominations list! click the buttons below to share!
+            </h3>
           )}
         </Grid>
         <Grid

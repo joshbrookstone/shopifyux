@@ -8,8 +8,8 @@ export default function (props) {
       className={"Loader"}
       type="Grid"
       color="#d1c499"
-      height={300}
-      width={300}
+      height={150}
+      width={150}
     />
   );
 }
