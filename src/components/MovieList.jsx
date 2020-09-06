@@ -2,6 +2,7 @@ import React from "react";
 import Spinner from "./Spinner";
 import "./MovieList.css";
 import Slider from "./NetflixSlider";
+import Button from "@material-ui/core/Button";
 
 export default function MovieList({
   movies,
@@ -32,20 +33,17 @@ export default function MovieList({
       <div className="app">
         <Slider>
           {movies.map((movie) => (
-            <>
-              <Slider.Item
-                movie={movie}
-                key={movie.id}
-                is_disabled={movieNominated(movie) || allNominationsSet()} // boolean
-                setNominate={nominateMovie}
-                onClick={() => onClick(movie)}
-                setName={setName}
-                setDate={setDate}
-              >
-                item1
-              </Slider.Item>
-              {/* {movie.Title} */}
-            </>
+            <Slider.Item
+              movie={movie}
+              key={movie.id}
+              is_disabled={movieNominated(movie) || allNominationsSet()} // boolean
+              setNominate={nominateMovie}
+              onClick={() => onClick(movie)}
+              setName={setName}
+              setDate={setDate}
+            >
+              item1
+            </Slider.Item>
           ))}
         </Slider>
       </div>

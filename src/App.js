@@ -57,17 +57,18 @@ export default function App() {
             direction="column"
             alignItems="center"
             justify="center"
-            style={{ minHeight: "20vh" }}
+            style={{ minHeight: "20vh", flexWrap: "nowrap" }}
             className={"Input-Grid"}
+            xs={6}
           >
-            <Grid item xs={6}>
+            <Grid item xs={5}>
               <Input
                 setMovies={setMovies}
                 setLoading={setLoading}
                 setError={setError}
               ></Input>
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={7}>
               {FullNominationList && (
                 <>
                   <h3 className={"Notification"}>Your list is finished</h3>
@@ -84,7 +85,7 @@ export default function App() {
             direction="column"
             alignItems="center"
             justify="center"
-            style={{ minHeight: "40vh", paddingTop: "50px" }}
+            style={{ minHeight: "40vh", flexWrap: "nowrap" }}
           >
             <Grid item xs={6}>
               <h1 className={"List-Header"}>Movie List:</h1>

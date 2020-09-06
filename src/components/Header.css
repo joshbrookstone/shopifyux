@@ -2,7 +2,7 @@
 
 header {
   text-align: left;
-  font-size: 40px;
+  font-size: 3vw;
   /* padding-top: 42px; */
   font-family: "Kumbh Sans", sans-serif;
   color: #d0d0d0;
@@ -24,7 +24,7 @@ header {
 
 .Nominate-Statement {
   font-weight: 400;
-  font-size: 24px;
+  font-size: 1.6vw;
   font-style: inherit;
   color: #d0d0d0;
   margin-bottom: 0px;

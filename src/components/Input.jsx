@@ -28,13 +28,13 @@ export default function Input({ setMovies, setLoading, setError }) {
 
   return (
     <TextField
-      inputProps={{ style: { fontSize: 35, color: "#d0d0d0" } }}
-      InputLabelProps={{ style: { fontSize: 30, color: "#d0d0d0" } }}
+      inputProps={{ style: { fontSize: "1.8vw", color: "#d0d0d0" } }}
+      InputLabelProps={{ style: { fontSize: "1.5vw", color: "#d0d0d0" } }}
       fullWidth
       label="Search Omdb"
       value={inputName}
       onChange={onChange}
-      placeholder="Enter a Movie Title"
+      placeholder="Movie Name"
     />
   );
 }
