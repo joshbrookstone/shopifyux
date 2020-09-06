@@ -2,7 +2,7 @@
 
 .Main-Container {
   font-size: 20px;
-  background-color: #dcd8ccf2;
+  background-color: #eaddcf;
   height: auto;
   background-image: url("https://www.transparenttextures.com/patterns/cream-dust.png");
   display: flex;
@@ -19,12 +19,10 @@
 .Input-Field {
   text-align: center;
   font-size: 40px;
-  /* padding-top: 61px; */
   font-family: "Kumbh Sans", sans-serif;
 }
 
 .Nominate-Statement {
-  color: #52504e;
   text-align: center;
 }
 

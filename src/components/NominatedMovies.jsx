@@ -1,8 +1,4 @@
 import React from "react";
-import Button from "@material-ui/core/Button";
-import { makeStyles } from "@material-ui/core/styles";
-import DeleteIcon from "@material-ui/icons/Delete";
-import { Grid } from "@material-ui/core";
 import Slider from "./NetflixSlider";
 
 import "./NominatedMovies.css";
@@ -14,6 +10,11 @@ export default function NominatedMovies({
   setName,
   setDate,
 }) {
+  const onClick = (movie) => {
+    removeNomination(movie.imdbID);
+    setName("");
+    setDate("");
+  };
   if (nominations.length > 0)
     return (
       <div className="app">
@@ -22,7 +23,7 @@ export default function NominatedMovies({
             <Slider.Item
               movie={movie}
               key={movie.id}
-              onClick={() => removeNomination(movie.imdbID)}
+              onClick={() => onClick(movie)}
               setName={setName}
               setDate={setDate}
             >

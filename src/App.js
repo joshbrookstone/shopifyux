@@ -53,9 +53,7 @@ export default function App() {
         <h3 className={"Nominate-Statement"}>
           Nominate your five favorite movies for the shoppies award!
         </h3>
-        <h3>
-          First Search for a movie and than click the poster to nominate it!
-        </h3>
+        <h3>Search for a movie and than click the poster to nominate it!</h3>
         <Grid
           container
           spacing={0}
@@ -71,13 +69,6 @@ export default function App() {
               setError={setError}
             ></Input>
           </Grid>
-          {FullNominationList && (
-            <>
-              <h3 className={"Notification"}>Your list is finished</h3>
-              <h3>Click here to share your list!</h3>
-              <Socials />
-            </>
-          )}
         </Grid>
         <Grid
           container
@@ -113,6 +104,13 @@ export default function App() {
             />
           </Grid>
         </Grid>
+        {FullNominationList && (
+          <>
+            <h3 className={"Notification"}>Your list is finished</h3>
+            <h3>Click here to share your list!</h3>
+            <Socials />
+          </>
+        )}
       </Container>
     </>
   );

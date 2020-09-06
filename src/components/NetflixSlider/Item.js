@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import cx from "classnames";
 import SliderContext from "./context";
 import Mark from "./Mark";
@@ -13,7 +13,7 @@ const Item = ({ movie, is_disabled, onClick, setName, setDate }) => (
         setDate(movie.Year);
       };
 
-      const onMouseLeave = (movie) => {
+      const onMouseLeave = () => {
         setName("");
         setDate("");
       };
@@ -22,7 +22,7 @@ const Item = ({ movie, is_disabled, onClick, setName, setDate }) => (
         <>
           <div
             onMouseEnter={() => onMouseEnter(movie)}
-            onMouseLeave={() => onMouseLeave(movie)}
+            onMouseLeave={() => onMouseLeave()}
             ref={elementRef}
             className={cx("item")}
             onClick={onClick}

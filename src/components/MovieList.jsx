@@ -1,6 +1,4 @@
 import React from "react";
-import SingleMovie from "./SingleMovie";
-import Grid from "@material-ui/core/Grid";
 import Spinner from "./Spinner";
 import "./MovieList.css";
 import Slider from "./NetflixSlider";
