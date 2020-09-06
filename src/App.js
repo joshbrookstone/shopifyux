@@ -81,7 +81,7 @@ export default function App() {
           <Grid item xs={6}>
             <h1 className={"List-Header"}>Movie List:</h1>
             <h3>
-              Movie information : {name ? name : ""} {date ? date : ""}
+              Info: {name ? name : ""} {date ? date : ""}
             </h3>
             <MovieList
               loaded={loaded}
