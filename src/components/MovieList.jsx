@@ -3,16 +3,17 @@ import SingleMovie from "./SingleMovie";
 import Grid from "@material-ui/core/Grid";
 import Spinner from "./Spinner";
 import "./MovieList.css";
+import Slider from "./NetflixSlider";
 
 export default function MovieList({
   movies,
   nominations,
   nominateMovie,
-  removeMovie,
   loaded,
   error,
+  setName,
+  setDate,
 }) {
-  console.log(movies);
   const movieNominated = (movie) => {
     return !!nominations.find((n) => n.imdbID === movie.imdbID);
   };
@@ -21,31 +22,35 @@ export default function MovieList({
     return nominations.length === 5;
   };
 
+  const onClick = (movie) => {
+    return is_disabled(movie) ? null : nominateMovie(movie);
+  };
+  const is_disabled = (movie) => {
+    return movieNominated(movie) || allNominationsSet();
+  };
+
   if (movies && loaded) {
     return (
-      <Grid
-        container
-        className={("Movie-List", "fade-in")}
-        style={{ placeContent: "center" }}
-      >
-        <ul>
-          {movies.map((singleMovie, i) => {
-            return (
-              <Grid item xs={12}>
-                <SingleMovie
-                  key={i}
-                  movie={singleMovie}
-                  is_disabled={
-                    movieNominated(singleMovie) || allNominationsSet()
-                  } // boolean
-                  setNominate={nominateMovie}
-                  removeMovie={removeMovie}
-                />
-              </Grid>
-            );
-          })}
-        </ul>
-      </Grid>
+      <div className="app">
+        <Slider>
+          {movies.map((movie) => (
+            <>
+              <Slider.Item
+                movie={movie}
+                key={movie.id}
+                is_disabled={movieNominated(movie) || allNominationsSet()} // boolean
+                setNominate={nominateMovie}
+                onClick={() => onClick(movie)}
+                setName={setName}
+                setDate={setDate}
+              >
+                item1
+              </Slider.Item>
+              {/* {movie.Title} */}
+            </>
+          ))}
+        </Slider>
+      </div>
     );
   }
   if (!loaded) {

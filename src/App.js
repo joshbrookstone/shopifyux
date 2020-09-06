@@ -22,6 +22,8 @@ export default function App() {
   const [loaded, setLoading] = useState();
   const [FullNominationList, setFullNominationList] = useState(false);
   const [error, setError] = useState();
+  const [name, setName] = useState("");
+  const [date, setDate] = useState("");
 
   useEffect(() => {
     const isNominationListFull = () => {
@@ -51,6 +53,9 @@ export default function App() {
         <h3 className={"Nominate-Statement"}>
           Nominate your five favorite movies for the shoppies award!
         </h3>
+        <h3>
+          First Search for a movie and than click the poster to nominate it!
+        </h3>
         <Grid
           container
           spacing={0}
@@ -68,8 +73,8 @@ export default function App() {
           </Grid>
           {FullNominationList && (
             <>
-              <h3 className={"Notification"}>Amazing nominations list!</h3>
-              <h3>Click to share your list!</h3>
+              <h3 className={"Notification"}>Your list is finished</h3>
+              <h3>Click here to share your list!</h3>
               <Socials />
             </>
           )}
@@ -77,19 +82,24 @@ export default function App() {
         <Grid
           container
           spacing={0}
-          direction="row"
+          direction="column"
           alignItems="center"
           justify="center"
           style={{ minHeight: "40vh" }}
         >
           <Grid item xs={6}>
             <h1 className={"List-Header"}>Movie List:</h1>
+            <h3>
+              Movie information : {name ? name : ""} {date ? date : ""}
+            </h3>
             <MovieList
               loaded={loaded}
               movies={movies}
               nominations={nominations}
               nominateMovie={nominateMovie}
               error={error}
+              setName={setName}
+              setDate={setDate}
             ></MovieList>
           </Grid>
           <Grid item xs={6}>
@@ -98,6 +108,8 @@ export default function App() {
               movies={nominations}
               removeNomination={removeNomination}
               nominations={nominations}
+              setName={setName}
+              setDate={setDate}
             />
           </Grid>
         </Grid>

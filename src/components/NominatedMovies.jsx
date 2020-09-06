@@ -3,51 +3,34 @@ import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 import DeleteIcon from "@material-ui/icons/Delete";
 import { Grid } from "@material-ui/core";
+import Slider from "./NetflixSlider";
 
 import "./NominatedMovies.css";
-
-const useStyles = makeStyles((theme) => ({
-  button: {
-    margin: theme.spacing(1),
-  },
-}));
 
 export default function NominatedMovies({
   movies,
   removeNomination,
   nominations,
+  setName,
+  setDate,
 }) {
-  const classes = useStyles();
-
   if (nominations.length > 0)
     return (
-      <Grid
-        container
-        className={"Nominated-Movie-List"}
-        style={{ placeContent: "center" }}
-      >
-        <ul>
-          {movies.map((movie, i) => {
-            return (
-              <Grid item xs={12}>
-                <li key={i} className={"Nominated-Movie"}>
-                  {movie.Title}({movie.Year})
-                  <Button
-                    variant="outlined"
-                    color="secondary"
-                    size="small"
-                    className={classes.button}
-                    startIcon={<DeleteIcon />}
-                    onClick={() => removeNomination(movie.imdbID)}
-                  >
-                    Remove
-                  </Button>
-                </li>
-              </Grid>
-            );
-          })}
-        </ul>
-      </Grid>
+      <div className="app">
+        <Slider>
+          {movies.map((movie) => (
+            <Slider.Item
+              movie={movie}
+              key={movie.id}
+              onClick={() => removeNomination(movie.imdbID)}
+              setName={setName}
+              setDate={setDate}
+            >
+              item1
+            </Slider.Item>
+          ))}
+        </Slider>
+      </div>
     );
 
   return (
