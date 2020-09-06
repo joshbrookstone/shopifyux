@@ -3,9 +3,8 @@
 
 .Main-Container {
   font-size: 20px;
-  background-color: #cccccc;
+  background-color: #958a56;
   height: auto;
-  background-image: url("https://www.transparenttextures.com/patterns/cream-dust.png");
   display: flex;
   flex-direction: column;
   align-content: flex-start;
@@ -28,9 +27,27 @@
 }
 
 .Notification {
-  color: #9a2138;
+  color: #000000;
 }
 
 .socials {
   display: flex;
+}
+
+.Search-Text {
+  font-style: inherit;
+}
+
+.Input-Grid {
+  padding-top: 120px;
+}
+
+.Squared-App {
+  display: flex;
+  padding-top: 181px;
+}
+
+.Movie-Info {
+  font-size: 60px;
+  color: #d0d0d0;
 }

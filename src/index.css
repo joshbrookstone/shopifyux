@@ -5,6 +5,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Kumbh Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #958a56;
 }
 
 code {
@@ -13,11 +14,11 @@ code {
 }
 
 h1 {
-  color: #52504e;
+  color: #d0d0d0;
 }
 
 h3 {
-  color: #171116c7;
+  color: #d0d0d0;
   text-align: center;
   font-weight: 400;
   font-style: italic;
@@ -25,6 +26,6 @@ h3 {
 
 li {
   font-family: "Kumbh Sans", sans-serif;
-  color: #52504e;
+  color: #d0d0d0;
   font-size: 17px;
 }

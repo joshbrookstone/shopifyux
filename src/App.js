@@ -50,70 +50,79 @@ export default function App() {
     <>
       <Container className={"Main-Container"} maxWidth="xl">
         <Header />
-        <h3 className={"Nominate-Statement"}>
-          Nominate your five favorite movies for the shoppies award!
-        </h3>
-        <h3>Search for a movie and than click the poster to nominate it!</h3>
-        <Grid
-          container
-          spacing={0}
-          direction="column"
-          alignItems="center"
-          justify="center"
-          style={{ minHeight: "20vh" }}
+        <div className={"Squared-App"}>
+          <Grid
+            container
+            spacing={0}
+            direction="column"
+            alignItems="center"
+            justify="center"
+            style={{ minHeight: "20vh" }}
+            className={"Input-Grid"}
+          >
+            <Grid item xs={6}>
+              <Input
+                setMovies={setMovies}
+                setLoading={setLoading}
+                setError={setError}
+              ></Input>
+            </Grid>
+            <Grid item xs={6}>
+              {FullNominationList && (
+                <>
+                  <h3 className={"Notification"}>Your list is finished</h3>
+                  <h3>Click here to share your list!</h3>
+                  <Socials />
+                </>
+              )}
+              {!FullNominationList && <></>}
+            </Grid>
+          </Grid>
+          <Grid
+            container
+            spacing={0}
+            direction="column"
+            alignItems="center"
+            justify="center"
+            style={{ minHeight: "40vh", paddingTop: "50px" }}
+          >
+            <Grid item xs={6}>
+              <h1 className={"List-Header"}>Movie List:</h1>
+              <MovieList
+                loaded={loaded}
+                movies={movies}
+                nominations={nominations}
+                nominateMovie={nominateMovie}
+                error={error}
+                setName={setName}
+                setDate={setDate}
+              ></MovieList>
+            </Grid>
+            <Grid item xs={6}>
+              <h1 className={"List-Header"}>Nominated Movies:</h1>
+              <NominatedMovies
+                movies={nominations}
+                removeNomination={removeNomination}
+                nominations={nominations}
+                setName={setName}
+                setDate={setDate}
+              />
+            </Grid>
+          </Grid>
+        </div>
+        <p
+          className={"Movie-Info"}
+          style={{
+            visibility: name ? "visible" : "hidden",
+            textAlign: "center",
+          }}
         >
-          <Grid item xs={12}>
-            <Input
-              setMovies={setMovies}
-              setLoading={setLoading}
-              setError={setError}
-            ></Input>
-          </Grid>
-        </Grid>
-        <Grid
-          container
-          spacing={0}
-          direction="column"
-          alignItems="center"
-          justify="center"
-          style={{ minHeight: "40vh" }}
-        >
-          <Grid item xs={6}>
-            <h1 className={"List-Header"}>Movie List:</h1>
-            <h3>
-              Info: {name ? name : ""} {date ? date : ""}
-            </h3>
-            <MovieList
-              loaded={loaded}
-              movies={movies}
-              nominations={nominations}
-              nominateMovie={nominateMovie}
-              error={error}
-              setName={setName}
-              setDate={setDate}
-            ></MovieList>
-          </Grid>
-          <Grid item xs={6}>
-            <h1 className={"List-Header"}>Nominated Movies:</h1>
-            <NominatedMovies
-              movies={nominations}
-              removeNomination={removeNomination}
-              nominations={nominations}
-              setName={setName}
-              setDate={setDate}
-            />
-          </Grid>
-        </Grid>
-        {FullNominationList && (
-          <>
-            <h3 className={"Notification"}>Your list is finished</h3>
-            <h3>Click here to share your list!</h3>
-            <Socials />
-          </>
-        )}
+          {name ? name : "hidden"} {date ? date : ""}
+        </p>
       </Container>
     </>
   );
 }
 
-//! ask alvin about flexboxing issue, as well as getting the actual share url
+//! z-index might be messed up on the carousel
+//! triple check socials is working after deploying

@@ -22,9 +22,7 @@ export default function Socials() {
     >
       <Grid item>
         <TwitterShareButton
-          url={
-            "https://www.google.com/webhp?hl=en&sa=X&ved=0ahUKEwjuscuq79DrAhWJvp4KHX1CBXoQPAgI"
-          }
+          url={`${window.location.href}`}
           title={"your-shoppies-list"}
           className="Demo__some-network__share-button"
         >
@@ -33,9 +31,7 @@ export default function Socials() {
       </Grid>
       <Grid item>
         <FacebookShareButton
-          url={
-            "https://www.google.com/webhp?hl=en&sa=X&ved=0ahUKEwjuscuq79DrAhWJvp4KHX1CBXoQPAgI"
-          }
+          url={`${window.location.href}`}
           title={"your-shoppies-list"}
           className="Demo__some-network__share-button"
         >
@@ -44,9 +40,7 @@ export default function Socials() {
       </Grid>
       <Grid item>
         <RedditShareButton
-          url={
-            "https://www.google.com/webhp?hl=en&sa=X&ved=0ahUKEwjuscuq79DrAhWJvp4KHX1CBXoQPAgI"
-          }
+          url={`${window.location.href}`}
           title={"your-shoppies-list"}
           className="Demo__some-network__share-button"
         >
