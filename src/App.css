@@ -45,6 +45,7 @@
 .Squared-App {
   display: flex;
   padding-top: 181px;
+  flex-wrap: nowrap;
 }
 
 .Movie-Info {
