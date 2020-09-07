@@ -68,7 +68,7 @@ export default function App() {
               className={"Explain"}
               style={{ alignSelf: "start", paddingBottom: "81px" }}
             >
-              Click a poster from the nomination list to un-nominate it
+              Click a poster from the nomination list to un-nominate
             </h3>
             <Grid item xs={4}>
               <Input

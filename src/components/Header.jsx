@@ -23,7 +23,8 @@ export default function (props) {
           style={{ backgroundColor: "#524a22" }}
         >
           <h3 className={"Nominate-Statement"}>
-            Nominate your five favorite movies for the shoppies award!
+            Search the Omdb database and nominate your five favorite movies for
+            the shoppies award!
           </h3>
         </ListSubheader>
       </AppBar>
