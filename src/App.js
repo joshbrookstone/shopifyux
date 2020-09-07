@@ -94,11 +94,14 @@ export default function App() {
                   <h3>Click here to share your list!</h3>
                   <Socials />
                   <h3>
-                    or{" "}
-                    <Button onClick={() => restartNominations(nominations)}>
-                      click
+                    or click{" "}
+                    <Button
+                      style={{ color: "rgb(179 11 11 / 87%)" }}
+                      onClick={() => restartNominations(nominations)}
+                    >
+                      here
                     </Button>{" "}
-                    here to restart
+                    to restart
                   </h3>
                 </animated.div>
               )}
