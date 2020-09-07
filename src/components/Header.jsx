@@ -25,10 +25,6 @@ export default function (props) {
           <h3 className={"Nominate-Statement"}>
             Nominate your five favorite movies for the shoppies award!
           </h3>
-          <h3 className={"Nominate-Statement"}>
-            To nominate a film first search OMDB. Than click a movie poster from
-            the movie list
-          </h3>
         </ListSubheader>
       </AppBar>
       {/* <div className={"headerDiv"}>

@@ -22,7 +22,7 @@ const Item = ({ movie, is_disabled, onClick, setName, setDate }) => (
         <>
           <div
             onMouseEnter={() => onMouseEnter(movie)}
-            onMouseLeave={() => onMouseLeave()}
+            onMouseLeave={() => onMouseLeave(movie)}
             ref={elementRef}
             className={cx("item")}
             onClick={onClick}

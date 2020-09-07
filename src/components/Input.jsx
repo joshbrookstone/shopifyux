@@ -28,8 +28,16 @@ export default function Input({ setMovies, setLoading, setError }) {
 
   return (
     <TextField
-      inputProps={{ style: { fontSize: "1.8vw", color: "#d0d0d0" } }}
-      InputLabelProps={{ style: { fontSize: "1.5vw", color: "#d0d0d0" } }}
+      inputProps={{
+        style: {
+          fontSize: "1.5rem",
+          color: "#d0d0d0",
+          fontFamily: "Kumbh Sans",
+        },
+      }}
+      InputLabelProps={{
+        style: { fontSize: "1rem", color: "#d0d0d0", fontFamily: "Kumbh Sans" },
+      }}
       fullWidth
       label="Search Omdb"
       value={inputName}

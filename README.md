@@ -6,8 +6,6 @@ Made for Shopify Winter 2021 Internship
 
 Hosted on Heroku: Visit [here](https://shopify-shoppies-ux.herokuapp.com/) to try the Shoppies App
 
-Created using Create React App.
-
 # Dependencies
 
 - axios

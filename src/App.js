@@ -61,14 +61,20 @@ export default function App() {
             className={"Input-Grid"}
             xs={6}
           >
-            <Grid item xs={5}>
+            <h3 className={"Explain"} style={{ alignSelf: "start" }}>
+              Click a poster from the movie list to nominate a film
+            </h3>
+            <h3 className={"Explain"} style={{ alignSelf: "start" }}>
+              Click a poster from the nomination list to un-nominate it
+            </h3>
+            <Grid item xs={4}>
               <Input
                 setMovies={setMovies}
                 setLoading={setLoading}
                 setError={setError}
               ></Input>
             </Grid>
-            <Grid item xs={7}>
+            <Grid item xs={8}>
               {FullNominationList && (
                 <>
                   <h3 className={"Notification"}>Your list is finished</h3>

@@ -38,9 +38,9 @@
   font-style: inherit;
 }
 
-.Input-Grid {
+/* .Input-Grid {
   padding-top: 120px;
-}
+} */
 
 .Squared-App {
   display: flex;
@@ -49,6 +49,10 @@
 }
 
 .Movie-Info {
-  font-size: 3vw;
+  font-size: 2.5vw;
   color: #d0d0d0;
+}
+
+.Explain {
+  margin-top: 0px;
 }
