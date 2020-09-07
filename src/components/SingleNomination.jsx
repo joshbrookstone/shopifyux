@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
-import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
+import DeleteIcon from "@material-ui/icons/Delete";
 import "./SingleMovie.css";
 
 const useStyles = makeStyles((theme) => ({
@@ -23,11 +23,11 @@ export default function SingleNomination({ movie, is_disabled, onClick }) {
         color="green"
         size="small"
         className={classes.button}
-        startIcon={<FavoriteBorderIcon />}
+        startIcon={<DeleteIcon />}
         onClick={onClick}
         disabled={is_disabled}
       >
-        Nominate
+        Remove
       </Button>
     </li>
   );

@@ -5,27 +5,37 @@ export default function Explanation({ displayToggle }) {
     return (
       <>
         <h3 className={"Explain"} style={{ alignSelf: "start" }}>
-          Click a poster from the movie list to nominate a film
+          Click on a poster to nominate a movie
         </h3>
         <h3
           className={"Explain"}
           style={{ alignSelf: "start", paddingBottom: "81px" }}
         >
-          Click a poster from the nomination list to un-nominate
+          Click on a poster from your nomination list to remove
         </h3>
+        <h3 className={"How-To-Top"} style={{ marginBottom: 0 }}>
+          Search by keyword or phrase in list or poster view
+        </h3>
+        <h3>Search one or more times to build your list</h3>
       </>
     );
   }
   return (
     <>
       <h3 className={"Explain"} style={{ alignSelf: "start" }}>
-        Click the nominate button from the movie list to nominate a film
+        Click on a nominate button to nominate a movie
       </h3>
       <h3
         className={"Explain"}
         style={{ alignSelf: "start", paddingBottom: "81px" }}
       >
-        Click a remove button from the nomination list to un-nominate
+        Click on the remove button from your nomination list to remove
+      </h3>
+      <h3 className={"How-To-Top"} style={{ marginBottom: 0 }}>
+        Search by keyword or phrase in list or poster view
+      </h3>
+      <h3 className={"How-To-Bottom"}>
+        Search one or more times to build your list
       </h3>
     </>
   );

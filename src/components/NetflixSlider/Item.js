@@ -3,6 +3,7 @@ import cx from "classnames";
 import SliderContext from "./context";
 import Mark from "./Mark";
 import "./Item.scss";
+import noMovie from "../../images/noposter.jpg";
 
 const Item = ({ movie, is_disabled, onClick, setName, setDate }) => (
   <SliderContext.Consumer>
@@ -32,7 +33,7 @@ const Item = ({ movie, is_disabled, onClick, setName, setDate }) => (
               cursor: is_disabled ? null : "pointer",
             }}
           >
-            <img src={movie.Poster} alt="" />
+            <img src={movie.Poster === "N/A" ? noMovie : movie.Poster} alt="" />
             {isActive && <Mark />}
           </div>
         </>
