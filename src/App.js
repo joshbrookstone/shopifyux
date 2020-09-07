@@ -76,7 +76,7 @@ export default function App() {
             xs={6}
           >
             <Explanation displayToggle={displayToggle.checked} />
-            <Grid item xs={4}>
+            <Grid item xs={4} style={{ flexBasis: " 23.333333%" }}>
               <Input
                 setMovies={setMovies}
                 setLoading={setLoading}
@@ -110,40 +110,52 @@ export default function App() {
           <Grid
             container
             spacing={0}
-            direction="column"
+            direction={"column"}
             alignItems="center"
             justify="center"
-            style={{ minHeight: "40vh", flexWrap: "nowrap" }}
+            style={{
+              minHeight: "40vh",
+              flexWrap: "nowrap",
+            }}
           >
-            <div>
-              <Switcher
-                setDisplayToggle={setDisplayToggle}
-                displayToggle={displayToggle}
-              ></Switcher>
-            </div>
-            <Grid item xs={6}>
-              <h1 className={"List-Header"}>Movie List:</h1>
-              <MovieList
-                loaded={loaded}
-                movies={movies}
-                nominations={nominations}
-                nominateMovie={nominateMovie}
-                error={error}
-                setName={setName}
-                setDate={setDate}
-                displayToggle={displayToggle.checked}
-              ></MovieList>
-            </Grid>
-            <Grid item xs={6}>
-              <h1 className={"List-Header"}>Nominated Movies:</h1>
-              <NominatedMovies
-                movies={nominations}
-                removeNomination={removeNomination}
-                nominations={nominations}
-                setName={setName}
-                setDate={setDate}
-                displayToggle={displayToggle.checked}
-              />
+            <Switcher
+              setDisplayToggle={setDisplayToggle}
+              displayToggle={displayToggle}
+              className={"Switcher"}
+            ></Switcher>
+            <Grid
+              container
+              spacing={0}
+              direction={displayToggle.checked ? "column" : "row"}
+              alignItems="center"
+              justify="center"
+              placeContent="center"
+              style={{ minHeight: "40vh", flexWrap: "nowrap" }}
+            >
+              <Grid item xs={6}>
+                <h1 className={"List-Header"}>Movie List:</h1>
+                <MovieList
+                  loaded={loaded}
+                  movies={movies}
+                  nominations={nominations}
+                  nominateMovie={nominateMovie}
+                  error={error}
+                  setName={setName}
+                  setDate={setDate}
+                  displayToggle={displayToggle.checked}
+                ></MovieList>
+              </Grid>
+              <Grid item xs={6}>
+                <h1 className={"List-Header"}>Nominated Movies:</h1>
+                <NominatedMovies
+                  movies={nominations}
+                  removeNomination={removeNomination}
+                  nominations={nominations}
+                  setName={setName}
+                  setDate={setDate}
+                  displayToggle={displayToggle.checked}
+                />
+              </Grid>
             </Grid>
           </Grid>
         </div>

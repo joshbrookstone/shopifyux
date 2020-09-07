@@ -11,10 +11,21 @@ export default function Switcher({ setDisplayToggle, displayToggle }) {
   };
 
   return (
-    <Grid component="label" container alignItems="center" spacing={1}>
+    <Grid
+      // component="label"
+      container
+      alignItems="center"
+      spacing={1}
+      style={{ placeContent: "center" }}
+      className={"testing"}
+    >
       <Grid
         item
-        style={{ fontSize: "1rem", color: "#d0d0d0", fontFamily: "Kumbh Sans" }}
+        style={{
+          fontSize: "1rem",
+          color: "#d0d0d0",
+          fontFamily: "Kumbh Sans",
+        }}
       >
         Button View
       </Grid>

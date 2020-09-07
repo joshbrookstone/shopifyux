@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function Explanation({ displayToggle }) {
-  if (displayToggle === false) {
+  if (displayToggle === true) {
     return (
       <>
         <h3 className={"Explain"} style={{ alignSelf: "start" }}>

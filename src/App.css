@@ -56,3 +56,7 @@
 .Explain {
   margin-top: 0px;
 }
+
+.Switcher {
+  place-content: center;
+}
