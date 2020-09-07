@@ -1,5 +1,6 @@
 export const NOMINATE = "NOMINATE";
 export const REMOVE = "REMOVE";
+export const RESTART = "RESTART";
 
 export default function reducer(state, action) {
   if (action.type === NOMINATE) {
@@ -11,6 +12,10 @@ export default function reducer(state, action) {
     const { id } = action;
 
     return state.filter((movie) => movie.imdbID !== id);
+  }
+
+  if (action.type === RESTART) {
+    return [];
   }
 
   throw new Error(

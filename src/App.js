@@ -15,15 +15,25 @@ import Socials from "./components/Socials";
 // Material UI Components
 import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
+import Button from "@material-ui/core/Button";
+
+//React Spring
+import { useSpring, animated } from "react-spring";
 
 export default function App() {
   const [movies, setMovies] = useState();
-  const { nominations, nominateMovie, removeNomination } = useNominations();
+  const {
+    nominations,
+    nominateMovie,
+    removeNomination,
+    restartNominations,
+  } = useNominations();
   const [loaded, setLoading] = useState();
   const [FullNominationList, setFullNominationList] = useState(false);
   const [error, setError] = useState();
   const [name, setName] = useState("");
   const [date, setDate] = useState("");
+  const props = useSpring({ opacity: FullNominationList ? 1 : 0 });
 
   useEffect(() => {
     const isNominationListFull = () => {
@@ -79,11 +89,18 @@ export default function App() {
             </Grid>
             <Grid item xs={8}>
               {FullNominationList && (
-                <>
+                <animated.div style={props}>
                   <h3 className={"Notification"}>Your list is finished</h3>
                   <h3>Click here to share your list!</h3>
                   <Socials />
-                </>
+                  <h3>
+                    or{" "}
+                    <Button onClick={() => restartNominations(nominations)}>
+                      click
+                    </Button>{" "}
+                    here to restart
+                  </h3>
+                </animated.div>
               )}
               {!FullNominationList && <></>}
             </Grid>
@@ -134,5 +151,4 @@ export default function App() {
   );
 }
 
-//! z-index might be messed up on the carousel
-//! triple check socials is working after deploying
+//! need to bring back the button. than can make a toggle button that toggles state that either shows the button to nominate or the pictures

@@ -1,5 +1,5 @@
 import { useReducer } from "react";
-import reducer, { NOMINATE, REMOVE } from "../helpers/reducer";
+import reducer, { NOMINATE, REMOVE, RESTART } from "../helpers/reducer";
 
 export default function useNominations() {
   const [nominations, dispatch] = useReducer(reducer, []);
@@ -12,5 +12,9 @@ export default function useNominations() {
     dispatch({ type: REMOVE, id });
   }
 
-  return { nominations, nominateMovie, removeNomination };
+  function restartNominations() {
+    dispatch({ type: RESTART, nominations });
+  }
+
+  return { nominations, nominateMovie, removeNomination, restartNominations };
 }
