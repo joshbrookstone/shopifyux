@@ -16,6 +16,8 @@ Hosted on Heroku: Visit [here](https://shopify-shoppies-ux.herokuapp.com/) to tr
 
 ## Finished Shoppies
 
+![finished](https://raw.githubusercontent.com/joshbrookstone/shopifyux/master/docs/images/finished.png?token=AOXUH4DAVC4NJZTJQHER47S7L644C)
+
 # Dependencies
 
 - axios
