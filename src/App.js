@@ -12,6 +12,8 @@ import MovieList from "./components/MovieList";
 import Input from "./components/Input";
 import Header from "./components/Header";
 import Socials from "./components/Socials";
+import Switcher from "./components/Switcher";
+import Explanation from "./components/Explanation";
 // Material UI Components
 import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
@@ -33,8 +35,10 @@ export default function App() {
   const [error, setError] = useState();
   const [name, setName] = useState("");
   const [date, setDate] = useState("");
-  const props = useSpring({ opacity: FullNominationList ? 1 : 0 });
 
+  const [displayToggle, setDisplayToggle] = useState({ checked: true });
+
+  const props = useSpring({ opacity: FullNominationList ? 1 : 0 });
   useEffect(() => {
     const isNominationListFull = () => {
       nominations.length === 5
@@ -71,15 +75,7 @@ export default function App() {
             className={"Input-Grid"}
             xs={6}
           >
-            <h3 className={"Explain"} style={{ alignSelf: "start" }}>
-              Click a poster from the movie list to nominate a film
-            </h3>
-            <h3
-              className={"Explain"}
-              style={{ alignSelf: "start", paddingBottom: "81px" }}
-            >
-              Click a poster from the nomination list to un-nominate
-            </h3>
+            <Explanation displayToggle={displayToggle.checked} />
             <Grid item xs={4}>
               <Input
                 setMovies={setMovies}
@@ -96,7 +92,10 @@ export default function App() {
                   <h3>
                     or click{" "}
                     <Button
-                      style={{ color: "rgb(179 11 11 / 87%)" }}
+                      style={{
+                        color: "rgb(179 11 11 / 87%)",
+                        fontWeight: "700",
+                      }}
                       onClick={() => restartNominations(nominations)}
                     >
                       here
@@ -116,6 +115,12 @@ export default function App() {
             justify="center"
             style={{ minHeight: "40vh", flexWrap: "nowrap" }}
           >
+            <div>
+              <Switcher
+                setDisplayToggle={setDisplayToggle}
+                displayToggle={displayToggle}
+              ></Switcher>
+            </div>
             <Grid item xs={6}>
               <h1 className={"List-Header"}>Movie List:</h1>
               <MovieList
@@ -126,6 +131,7 @@ export default function App() {
                 error={error}
                 setName={setName}
                 setDate={setDate}
+                displayToggle={displayToggle.checked}
               ></MovieList>
             </Grid>
             <Grid item xs={6}>
@@ -136,6 +142,7 @@ export default function App() {
                 nominations={nominations}
                 setName={setName}
                 setDate={setDate}
+                displayToggle={displayToggle.checked}
               />
             </Grid>
           </Grid>
@@ -155,3 +162,5 @@ export default function App() {
 }
 
 //! need to bring back the button. than can make a toggle button that toggles state that either shows the button to nominate or the pictures
+//! need to take photos and add to the readme
+//! need to complete the application form tomorrow also

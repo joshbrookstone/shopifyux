@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SingleMovie({ movie, is_disabled, onClick }) {
+export default function SingleNomination({ movie, is_disabled, onClick }) {
   const classes = useStyles();
 
   return (

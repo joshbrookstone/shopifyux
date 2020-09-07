@@ -4,4 +4,10 @@
 
 .Single-Movie {
   list-style-type: none;
+  display: flex;
+  align-items: center;
+}
+
+.Movie-Info {
+  font-size: 1vw;
 }

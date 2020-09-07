@@ -1,6 +1,6 @@
 import React from "react";
 import Slider from "./NetflixSlider";
-
+import SingleNomination from "./SingleNomination";
 import "./NominatedMovies.css";
 
 export default function NominatedMovies({
@@ -9,13 +9,14 @@ export default function NominatedMovies({
   nominations,
   setName,
   setDate,
+  displayToggle,
 }) {
   const onClick = (movie) => {
     removeNomination(movie.imdbID);
     setName("");
     setDate("");
   };
-  if (nominations.length > 0)
+  if (nominations.length > 0 && displayToggle === true)
     return (
       <div className="app">
         <Slider>
@@ -34,6 +35,20 @@ export default function NominatedMovies({
       </div>
     );
 
+  if (nominations.length > 0 && displayToggle === false)
+    return (
+      <div className="app">
+        {movies.map((movie) => (
+          <SingleNomination
+            movie={movie}
+            key={movie.id}
+            onClick={() => onClick(movie)}
+          >
+            item1
+          </SingleNomination>
+        ))}
+      </div>
+    );
   return (
     <h3 className={"Nominated-Filler"}>
       Your nominated movies will appear here

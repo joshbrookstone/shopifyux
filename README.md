@@ -2,7 +2,7 @@
 
 An OMDB API Searcher that allows you to nominate up to five favorite movies
 
-Made for Shopify Winter 2021 Internship
+Made for the Shopify Winter 2021 Internship
 
 Hosted on Heroku: Visit [here](https://shopify-shoppies-ux.herokuapp.com/) to try the Shoppies App
 

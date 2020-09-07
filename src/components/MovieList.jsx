@@ -2,7 +2,7 @@ import React from "react";
 import Spinner from "./Spinner";
 import "./MovieList.css";
 import Slider from "./NetflixSlider";
-import Button from "@material-ui/core/Button";
+import SingleMovie from "./SingleMovie";
 
 export default function MovieList({
   movies,
@@ -12,6 +12,7 @@ export default function MovieList({
   error,
   setName,
   setDate,
+  displayToggle,
 }) {
   const movieNominated = (movie) => {
     return !!nominations.find((n) => n.imdbID === movie.imdbID);
@@ -28,7 +29,7 @@ export default function MovieList({
     return movieNominated(movie) || allNominationsSet();
   };
 
-  if (movies && loaded) {
+  if (movies && loaded && displayToggle === true) {
     return (
       <div className="app">
         <Slider>
@@ -49,6 +50,25 @@ export default function MovieList({
       </div>
     );
   }
+
+  if (movies && loaded && displayToggle === false) {
+    return (
+      <div className="app">
+        {movies.map((movie) => (
+          <SingleMovie
+            movie={movie}
+            key={movie.id}
+            is_disabled={movieNominated(movie) || allNominationsSet()} // boolean
+            setNominate={nominateMovie}
+            onClick={() => onClick(movie)}
+          >
+            item1
+          </SingleMovie>
+        ))}
+      </div>
+    );
+  }
+
   if (!loaded) {
     return <Spinner />;
   }
