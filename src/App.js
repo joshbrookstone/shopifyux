@@ -64,7 +64,10 @@ export default function App() {
             <h3 className={"Explain"} style={{ alignSelf: "start" }}>
               Click a poster from the movie list to nominate a film
             </h3>
-            <h3 className={"Explain"} style={{ alignSelf: "start" }}>
+            <h3
+              className={"Explain"}
+              style={{ alignSelf: "start", paddingBottom: "81px" }}
+            >
               Click a poster from the nomination list to un-nominate it
             </h3>
             <Grid item xs={4}>
