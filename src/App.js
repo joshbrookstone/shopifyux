@@ -129,7 +129,6 @@ export default function App() {
               direction={displayToggle.checked ? "column" : "row"}
               alignItems="center"
               justify="center"
-              placeContent="center"
               style={{ minHeight: "40vh", flexWrap: "nowrap" }}
             >
               <Grid item xs={6}>
